@@ -113,7 +113,15 @@ class Engine:
                 return True
         return False
     
+    def _has_two_adjacent_neighbors_in_the_board(self, h: Hex) -> bool:
+        neighbor_indices = [i for i, neighbor in enumerate(h.neighbors()) if neighbor in self.gamestate.board.board]
+        for i in range(len(neighbor_indices)):
+            if (neighbor_indices[i] + 1) % 6 == neighbor_indices[(i+1) % len(neighbor_indices)]:
+                return True
+        return False
+    
     def _does_not_separate_the_board_into_two_parts(self, start_h: Hex) -> bool:
+        if self._has_two_adjacent_neighbors_in_the_board(start_h): return True
         queue = [n for n in start_h.neighbors() if n in self.gamestate.board.board][:1]
         visited = set()
         while queue:
