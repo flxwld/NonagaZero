@@ -92,11 +92,11 @@ class Engine:
             UpAction(h)
             for h in self.gamestate.board.board
             if
-            self._has_two_adjacent_neighbors_not_in_the_board(h) and
-            self._does_not_separate_the_board_into_two_parts(h) and
             h not in self.gamestate.own_stones and
             h not in self.gamestate.enemy_stones and
-            h is not self.gamestate.last_hex_relocated
+            h is not self.gamestate.last_hex_relocated and
+            self._has_two_adjacent_neighbors_not_in_the_board(h) and
+            self._does_not_separate_the_board_into_two_parts(h)
         ]
 
     def make_up(self, up: UpAction):
