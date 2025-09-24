@@ -10,12 +10,12 @@ from helpers.validation_game import validation_game, validation_game_with_histor
 
 
 args = Args(
-    num_iterations=3,
-    num_selfPlay_iterations=2,
-    num_parallel_games=2,
-    num_simulations=10,
-    num_epochs=3,
-    num_validation_games=10,
+    num_iterations=100,
+    num_selfPlay_iterations=16,
+    num_parallel_games=125,
+    num_simulations=600,
+    num_epochs=10,
+    num_validation_games=100,
 
     max_self_play_steps=300,
 
@@ -24,10 +24,10 @@ args = Args(
     dirichlet_epsilon=0.25,
     dirichlet_alpha=0.3,
     
-    batch_size=64,
+    batch_size=512,
     lr=0.001,
     weight_decay=0.0001,
-    num_resBlocks=16,
+    num_resBlocks=20,
     num_hidden=256,
 )
 
